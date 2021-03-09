@@ -38,7 +38,7 @@ in
         mpv           # Video player
         nitrogen      # Wallpaper manager
         feh           # Image viewer
-	spotify       # Music player
+        spotify       # Music player
       ];
     };
     all = pkgs.buildEnv {
