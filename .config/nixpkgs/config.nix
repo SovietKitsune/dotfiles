@@ -21,7 +21,6 @@ in
         starship                    # Prompt
         bpytop                      # System monitor
         cava                        # Audio thing
-        youtube-dl                  # YouTube downloader
         xclip                       # Copy and paste
         neofetch                    # Fetch tool
         pulsemixer                  # Pulse audio helper

@@ -1,3 +1,7 @@
+function fish_command_not_found
+   __fish_default_command_not_found_handler $argv
+end
+
 # Nix
 
 set NIX_LINK $HOME/.nix-profile
@@ -8,7 +12,7 @@ set -x MANPATH $NIX_LINK/share/man:$MANPATH
 
 # PATH
 
-set -x PATH $NIX_LINK/bin $HOME/.cargo/bin $HOME/.local/bin $PATH
+set -x PATH $HOME/go/bin $NIX_LINK/bin $HOME/.cargo/bin $HOME/.local/bin $HOME/.local/bin/zig $PATH
 
 # Others
 
@@ -28,3 +32,7 @@ alias copy="xclip -sel clipboard"
 # Starship
 
 starship init fish | source
+
+# Wasmer
+export WASMER_DIR="/home/sovietk/.wasmer"
+[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"

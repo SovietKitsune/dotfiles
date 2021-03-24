@@ -1,7 +1,3 @@
----------------------------
--- Default awesome theme --
----------------------------
-
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
@@ -15,13 +11,13 @@ local theme = {}
 
 theme.font          = "sans 16"
 
-theme.bg_normal     = "#131830"
-theme.bg_focus      = "#4b7bec"
+theme.bg_normal     = "#192330"
+theme.bg_focus      = "#FC427B"
 theme.bg_urgent     = "#eb3b5a"
 theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
 
-theme.fg_normal     = "#aaaaaa"
+theme.fg_normal     = "#eeeeee"
 theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
@@ -31,6 +27,9 @@ theme.border_width  = dpi(0)
 theme.border_normal = "#000000"
 theme.border_focus  = "#535d6c"
 theme.border_marked = "#91231c"
+
+-- Tasklist
+theme.tasklist_bg_minimize = theme.bg_normal
 
 -- Taglist
 

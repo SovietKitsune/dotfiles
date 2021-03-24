@@ -10,8 +10,6 @@ local wibox = require 'wibox'
 -- Themes
 local beautiful = require 'beautiful'
 
-local runShell = require 'widgets.run-shell'
-
 local hotkeys_popup = require 'awful.hotkeys_popup'
 
 require 'awful.autofocus'
@@ -19,6 +17,22 @@ require 'awful.hotkeys_popup.keys'
 
 -- Load configurations
 beautiful.init(os.getenv('HOME') .. '/.config/awesome/theme.lua')
+
+local nice = require 'nice'
+
+nice {
+   titlebar_color = '#373E4D',
+   titlebar_height = 28,
+   win_shade_enabled = false,
+   titlebar_items = {
+      left = { 'close', 'minimize', 'maximize' },
+      middle = '',
+      right = {}
+   },
+   close_color = '#fa5aa4',
+   minimize_color = '#63c5ea',
+   maximize_color = '#cf8ef4'
+}
 
 local config = require 'config'
 local modkey = config.modkey
@@ -70,6 +84,7 @@ awful.screen.connect_for_each_screen(function(screen)
       widget_template = {
          widget = wibox.container.background,
          id = 'background_role',
+         left = 12.5,
          {
             left  = 12.5,
             right = 12.5,
@@ -142,7 +157,9 @@ local globalKeys = gears.table.join(
    end),
    awful.key({modkey, 'Control'}, 'r', awesome.restart),
    awful.key({modkey, 'Shift'}, 'q', awesome.quit),
-   awful.key({modkey}, 'r', runShell.launch),
+   awful.key({modkey}, 'r', function()
+      awful.spawn('dmenu_run')
+   end),
    awful.key({modkey}, 'p', function()
       awful.spawn('flameshot gui')
    end),
@@ -240,7 +257,8 @@ awful.rules.rules = {
          keys = clientKeys,
          buttons = clientButtons,
          screen = awful.screen.preferred,
-         placement = awful.placement.no_overlap + awful.placement.no_offscreen
+         placement = awful.placement.no_overlap + awful.placement.no_offscreen,
+         titlebars_enabled = true
       }
    }
 }
@@ -261,3 +279,4 @@ end)
 for i = 1, #config.autostart do
    awful.spawn.with_shell(config.autostart[i])
 end
+

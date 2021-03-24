@@ -14,7 +14,7 @@ return {
    layouts = {
       -- lain.layout.centerwork,
       layout.tile,
-      layout.fair,
+      -- layout.floating,
       layout.spiral,
       layout.max
    },
@@ -29,16 +29,16 @@ return {
          {
             layout = wibox.layout.fixed.horizontal,
             spacing = 5,
-            lain.widget.cpu {
-               settings = function()
-                  widget:set_markup(' ' .. cpu_now.usage .. '%')
-               end
-            },
-            lain.widget.mem {
-               settings = function()
-                  widget:set_markup(' ' .. mem_now.perc .. '%')
-               end
-            },
+            -- lain.widget.cpu {
+            --    settings = function()
+            --       widget:set_markup(' ' .. cpu_now.usage .. '%')
+            --    end
+            -- },
+            -- lain.widget.mem {
+            --    settings = function()
+            --       widget:set_markup(' ' .. mem_now.perc .. '%')
+            --    end
+            -- },
             wibox.widget.textclock('%T', 1),
          }
       }
@@ -60,9 +60,7 @@ return {
    ),
    layout = 1,
    tags = {
-      -- Code, Spotify, Terminal, Fire
-      {'', '', ''},
-      -- Firefox, Chat, Terminal, Bookmark
-      {'', '', ''}
+      {'', '', '', ''},
+      {'', '', '', ''}
    }
 }

@@ -1,29 +1,29 @@
 shell: /usr/bin/fish
-background_opacity: 0.5
+background_opacity: 0.6
 colors:
-  name: 3024 (dark)
-  author: Chris Kempson
+  # Default colors
   primary:
-    background: "#090300"
-    foreground: "#a5a2a2"
-  cursor:
-    text: "#090300"
-    cursor: "#a5a2a2"
+    background: '#373e4d'
+    foreground: '#f9f9f9'
+
+  # Normal colors
   normal:
-    black: "#090300"
-    red: "#db2d20"
-    green: "#01a252"
-    yellow: "#fded02"
-    blue: "#01a0e4"
-    magenta: "#a16a94"
-    cyan: "#b5e4f4"
-    white: "#a5a2a2"
+    black: '#434c5e'
+    red: '#fa5aa4'
+    green: '#2be491'
+    yellow: '#fa946e'
+    blue: '#63c5ea'
+    magenta: '#cf8ef4'
+    cyan: '#89ccf7'
+    white: '#f9f9f9'
+
+  # Bright colors
   bright:
-    black: "#5c5855"
-    red: "#db2d20"
-    green: "#01a252"
-    yellow: "#fded02"
-    blue: "#01a0e4"
-    magenta: "#a16a94"
-    cyan: "#b5e4f4"
-    white: "#f7f7f7"
+    black: '#4c566a'
+    red: '#fa74b2'
+    green: '#44eb9f'
+    yellow: '#faa687'
+    blue: '#7acbea'
+    magenta: '#d8a6f4'
+    cyan: '#a1d5f7'
+    white: '#FAFAFA'
