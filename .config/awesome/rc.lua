@@ -1,21 +1,24 @@
 -- Load Luarocks
 pcall(require, 'luarocks.loader')
 
+local hotkeys_popup = require 'awful.hotkeys_popup'
+
+local beautiful = require 'beautiful'
+
+local naughty = require 'naughty'
+
 -- Utility and standard libraries
 local gears = require 'gears'
 
 local awful = require 'awful'
 -- Widgets
 local wibox = require 'wibox'
--- Themes
-local beautiful = require 'beautiful'
 
-local hotkeys_popup = require 'awful.hotkeys_popup'
+local ruled = require 'ruled'
 
 require 'awful.autofocus'
 require 'awful.hotkeys_popup.keys'
 
--- Load configurations
 beautiful.init(os.getenv('HOME') .. '/.config/awesome/theme.lua')
 
 local nice = require 'nice'
@@ -23,21 +26,20 @@ local nice = require 'nice'
 nice {
    titlebar_color = '#373E4D',
    titlebar_height = 28,
-   win_shade_enabled = false,
    titlebar_items = {
       left = { 'close', 'minimize', 'maximize' },
       middle = '',
       right = {}
    },
-   close_color = '#fa5aa4',
-   minimize_color = '#63c5ea',
-   maximize_color = '#cf8ef4'
+   close_color = '#eb3b5a',
+   minimize_color = '#4b7bec',
+   maximize_color = '#a55eea'
 }
 
 local config = require 'config'
 local modkey = config.modkey
 
-awful.layout.layouts = config.layouts
+awful.layout.append_default_layouts(config.layouts)
 
 local taglistButtons = gears.table.join(
    awful.button({}, 1, function(t)
@@ -246,28 +248,26 @@ local clientButtons = gears.table.join(
 
 root.keys(globalKeys)
 
-awful.rules.rules = {
-   {
-      rule = {},
-      properties = {
-         border_width = beautiful.border_width,
+ruled.client.append_rule {
+   rule = {},
+   properties = {
+      border_width = beautiful.border_width,
          border_color = beautiful.border_color,
          focus = awful.client.focus.filter,
-         raise = true,
          keys = clientKeys,
          buttons = clientButtons,
          screen = awful.screen.preferred,
          placement = awful.placement.no_overlap + awful.placement.no_offscreen,
          titlebars_enabled = true
-      }
    }
 }
 
+naughty.connect_signal('request::display', function(n)
+   naughty.layout.box { notification = n }
+end)
+
 client.connect_signal('manage', function(c)
-   if awesome.startup and not
-      c.size_hints.user_position and not
-      c.size_hints.program_position
-   then
+   if awesome.startup and not c.size_hints.user_position and not c.size_hints.program_position then
       awful.placement.no_offscreen(c)
    end
 end)
@@ -279,4 +279,3 @@ end)
 for i = 1, #config.autostart do
    awful.spawn.with_shell(config.autostart[i])
 end
-

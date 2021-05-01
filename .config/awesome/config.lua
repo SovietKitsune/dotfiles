@@ -3,7 +3,6 @@
 -- local pulse = require 'pulseaudio_widget'
 local awful = require 'awful'
 local wibox = require 'wibox'
-local lain = require 'lain'
 local layout = awful.layout.suit
 
 return {
@@ -21,8 +20,8 @@ return {
    autostart = {
       'picom --experimental-backends &',
       'nitrogen --restore',
-      'xrandr --output DP-1 --primary',
-      'xrandr --output DP-1 --left-of HDMI-0'
+      'xrandr --output HDMI-0 --primary',
+      'xrandr --output HDMI-0 --left-of DVI-D-0'
    },
    bar = function()
       return {
@@ -46,16 +45,16 @@ return {
    keybindings = awful.util.table.join(
       -- Audio
       awful.key({ }, 'XF86AudioNext', function()
-         awful.spawn.with_shell('lollypop -n')
+         awful.spawn.with_shell('sp next')
       end),
       awful.key({ }, 'XF86AudioPrev', function()
-         awful.spawn.with_shell('lollypop -p')
+         awful.spawn.with_shell('sp prev')
       end),
       awful.key({ }, 'XF86AudioStop', function()
-         awful.spawn.with_shell('lollypop -s')
+         awful.spawn.with_shell('sp pause')
       end),
       awful.key({ }, 'XF86AudioPlay', function()
-         awful.spawn.with_shell('lollypop -t')
+         awful.spawn.with_shell('sp play')
       end)
    ),
    layout = 1,

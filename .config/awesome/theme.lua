@@ -9,11 +9,11 @@ local theme = {}
 
 -- Globals
 
-theme.font          = "sans 16"
+theme.font          = "Sans 16"
 
-theme.bg_normal     = "#192330"
-theme.bg_focus      = "#FC427B"
-theme.bg_urgent     = "#eb3b5a"
+theme.bg_normal     = "#1e2030"
+theme.bg_focus      = "#8854d0"
+theme.bg_urgent     = "#a55eea"
 theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
 
@@ -26,20 +26,23 @@ theme.useless_gap   = dpi(5)
 theme.border_width  = dpi(0)
 theme.border_normal = "#000000"
 theme.border_focus  = "#535d6c"
-theme.border_marked = "#91231c"
+theme.border_marked = "#7158e2"
 
 -- Tasklist
 theme.tasklist_bg_minimize = theme.bg_normal
+theme.tasklist_disable_icon = true
 
 -- Taglist
 
 local taglist_square_size = dpi(4)
+
 theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
     taglist_square_size, theme.fg_normal
 )
 theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
     taglist_square_size, theme.fg_normal
 )
+theme.taglist_font = "Sans 22"
 
 -- Menu
 

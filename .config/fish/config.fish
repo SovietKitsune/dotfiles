@@ -12,7 +12,7 @@ set -x MANPATH $NIX_LINK/share/man:$MANPATH
 
 # PATH
 
-set -x PATH $HOME/go/bin $NIX_LINK/bin $HOME/.cargo/bin $HOME/.local/bin $HOME/.local/bin/zig $PATH
+set -x PATH $HOME/.local/bin $HOME/go/bin $NIX_LINK/bin $HOME/.cargo/bin $HOME/.local/bin/zig $PATH
 
 # Others
 
@@ -33,6 +33,11 @@ alias copy="xclip -sel clipboard"
 
 starship init fish | source
 
+# Luarocks
+
+luarocks path | source
+
 # Wasmer
+
 export WASMER_DIR="/home/sovietk/.wasmer"
 [ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
